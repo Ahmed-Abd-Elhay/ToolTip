@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+}
+
+button {
+    position: relative;
+    display: block;
+    width: fit-content;
+    border: none;
+    padding: 15px 33px;
+    background-color: navy;
+    color: white;
+    border-radius: 6px;
+    margin: 200px auto;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    transition: .5s;
+    overflow: hidden;
+}
+
+button:focus {
+    outline: none;
+}
+
+button span {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    background-color: #333333;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    opacity: 0;
+    transition: .5s;
+}
+
+button span::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: #333333 transparent transparent transparent;
+    border-width: 15px;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s;
+}
+
+button:hover {
+    overflow: visible;
+}
+
+button:hover span {
+    opacity: 1;
+}
+
+[data-posation="bottom"] span {
+    top: auto;
+    bottom: -70px;
+}
+
+[data-posation="bottom"] span::after {
+    bottom: auto;
+    top: -30px;
+    border-color: transparent transparent #333333 transparent;
+}
+
+
+
+/* FIll Color Background Of Element */
+.fil {
+    position: relative;
+    margin: 60px auto;
+    width: fit-content;
+    font-size: 80px;
+    font-weight: bold;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 1px #333;
+}
+
+.fil::before {
+    content: attr(data-fil);
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-text-fill-color: #2196f3;
+    width: 0%;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.fil:hover::before {
+    width: 100%;
+}
